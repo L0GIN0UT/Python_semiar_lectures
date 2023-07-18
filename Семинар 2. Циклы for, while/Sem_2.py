@@ -188,12 +188,12 @@ while True:
     if n > 1:
         break
 
-max_weight = int(input(f'Введите вес арбуза {n} -> '))
-min_weight = int(input(f'Введите вес арбуза {n - 1} -> '))
+max_weight = 0
+min_weight = 30000
 
 
-while n - 2 > 0:
-    temp = int(input(f'Введите вес арбуза {n - 2} -> '))
+while n > 0:
+    temp = int(input(f'Введите вес арбуза {n} -> '))
     if min_weight > temp:
         min_weight = temp
     if max_weight < temp:
