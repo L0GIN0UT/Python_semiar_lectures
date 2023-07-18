@@ -37,6 +37,23 @@ import random
 #     else:
 #         print(-1)
 
+
+# # 2 Вариант
+#
+# fib1 = 1
+# fib2 = 1
+#
+# A = int(input('Введите число A: '))
+#
+# i = 0
+# while fib2 < A:
+#     fibSum = fib1 + fib2
+#     fib1 = fib2
+#     fib2 = fibSum
+#     i = i+1
+# if fib2 == A: print(i+2)
+# else: print(-1)
+
 #  0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377,
 # [1, 2, 3, 4, 5, 6,  7,  8,  9, 10, 11,  12, 13,  14, 15,
 # 610, 987, 1597, 2584, 4181, 6765, 10946, 17711
@@ -60,44 +77,66 @@ import random
 # диапазоне от –50 до 50
 # Input: 6 -> -20 30 -40 50 10 -10
 # Output: 2
-# Защита от дурака
-while True:
-    n = int(input('Введите кол-во дней (от 1 до 100):  -> '))
-    if n <= 100 and n >= 1:
-        break
 
-days = []
-count = 0
-temp = 0
-# цикл для заполнения массива данными ср.суточной температуры
-while n > 0:
-    days.append(random.randint(-50, 50))
-    n -= 1
+# # Защита от дурака
+# while True:
+#     n = int(input('Введите кол-во дней (от 1 до 100):  -> '))
+#     if n <= 100 and n >= 1:
+#         break
+#
+# days = []
+# count = 0
+# temp = 0
+#
+# # цикл для заполнения массива данными ср.суточной температуры
+# while n > 0:
+#     days.append(random.randint(-50, 50))
+#     n -= 1
+#
+# print(days)
+#
+# # Цикл для подсчета дней с ср.суточной температурой > 0
+# for i in range(0,len(days)):
+#     if days[i] > 0:
+#         temp += 1
+#         if temp > count:
+#             count = temp
+#     else:
+#         temp = 0
+#
+# # Для красоты вывода
+# if count == 1 or count % 10 == 1:
+#     day = 'день'
+# if 1 < count < 5 or 1 < count % 10 < 5:
+#     day = 'дня'
+# else:
+#     day = 'дней'
+#
+#
+# # Вывод
+# print(f'Самая длинная оттепель длилась - {count} {day}')
 
-print(days)
+# 2 Вариант
 
-# Цикл для подсчета дней с ср.суточной температурой > 0
-for i in range(0,len(days)):
-    if days[i] > 0:
-        temp += 1
-        if temp > count:
-            count = temp
-    else:
-        temp = 0
-
-# Для красоты вывода
-if count == 1 or count % 10 == 1:
-    day = 'день'
-if 1 < count < 5 or 1 < count % 10 < 5:
-    day = 'дня'
-else:
-    day = 'дней'
-
-
-# Вывод
-print(f'Самая длинная оттепель длилась - {count} {day}')
-
-
+# while True:
+#     n = int(input('Введите кол-во дней (от 1 до 100):  -> '))
+#     if n <= 100 and n >= 1:
+#         break
+#
+# temp = 0
+# count = 0
+#
+# while n > 0:
+#     a = int(input('Введите среднесуточную температуру от (-50, 50):  -> '))
+#     if a > 0:
+#         temp += 1
+#         if temp > count:
+#             count = temp
+#     else:
+#         temp = 0
+#     n -= 1
+#
+# print(count)
 # Задача №15. Решение в группах
 # 15. Иван Васильевич пришел на рынок и решил
 # купить два арбуза: один для себя, а другой для тещи.
@@ -131,9 +170,7 @@ print(f'Самая длинная оттепель длилась - {count} {day
 #
 # # защита от дурака
 # if min_weight > max_weight:
-#     temp = min_weight
-#     min_weight = max_weight
-#     max_weight = temp
+#     min_weight , max_weight = max_weight , min_weight
 #
 # for i in range(0,len(watermelons)-1):
 #     if watermelons[i] > max_weight:
@@ -145,3 +182,47 @@ print(f'Самая длинная оттепель длилась - {count} {day
 # print(f'Ваш арбуз весит {max_weight} кг,'
 #       f' a aрбуз для тещи весит {min_weight} кг')
 
+
+while True:
+    n = int(input('Введите кол-во арбузов  -> '))
+    if n > 1:
+        break
+
+max_weight = int(input(f'Введите вес арбуза {n} -> '))
+min_weight = int(input(f'Введите вес арбуза {n - 1} -> '))
+
+
+while n - 2 > 0:
+    temp = int(input(f'Введите вес арбуза {n - 2} -> '))
+    if min_weight > temp:
+        min_weight = temp
+    if max_weight < temp:
+        max_weight = temp
+    n -= 1
+
+
+print(f'Ваш арбуз весит {max_weight} кг,'
+      f' a aрбуз для тещи весит {min_weight} кг')
+
+# #Разложение числа на простые множители
+#
+# while True:
+#     n = int(input('Введите положительное число -> '))
+#     if n >= 1:
+#         break
+#
+# res = []
+# temp = 2
+#
+# while n > 1:
+#     if n % temp == 0:
+#         res.append(temp)
+#         n //= temp
+#     else:
+#         temp += 1
+#
+# print(res)
+
+
+# Вывод всех двухзначных чисел, кратных 5
+# print(*range(10,100,5))
