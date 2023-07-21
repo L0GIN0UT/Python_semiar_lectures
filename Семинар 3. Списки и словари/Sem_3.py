@@ -203,6 +203,18 @@
 # print(array)
 
 
+# data = {'1': 'S001',
+#         '2': 'S002',
+#         '3': 'S001',
+#         '4': 'S005',
+#         '5': 'S005',
+#         '6': 'S009',
+#         '7': 'S007'}
+#
+# print(set([value for key, value in data.items()]))
+#
+# print(set(data.values()))
+
 # 2 Вариант (ТЗ курильщика)
 
 # dict = [{"V": "S001"}, {"V": "S002"}, {"VI": "S001"},
@@ -237,6 +249,19 @@
 
 
 # 1 Вариант строго по тз
+
+# array = [0, -1, 5, 2, 3]
+# print(len([array[i] for i in range(1, len(array)) if array[i-1] < array[i]]))
+# a = ''
+# for i in range(1, len(array)):
+#     if array[i - 1] < array[i]:
+#         a += ' (' + str(array[i - 1]) + ' < ' + str(array[i]) + ') '
+# print(a)
+
+
+# spisok = [4, 3, 5, 6, 1, 2]
+# chislo = [[spisok[i-1], spisok[i]] for i in range(1, len(spisok)) if spisok[i] > spisok[i-1]]
+# chislo2 = [print(' (' + str(item[0]) + ' < ' + str(item[1]) + ') ') for item in chislo]
 
 # array = []
 # # [0, -1, 5, 2, 3]
