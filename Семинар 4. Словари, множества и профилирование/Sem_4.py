@@ -9,6 +9,23 @@ import re
 # Для решения данной задачи используйте функцию
 # .split()
 
+
+# string = input('Введите элементы списка через пробел -> ').split()
+
+# dict = {}
+# result = ''
+# for i in string:
+#     if i not in dict:
+#         dict[i] = 0
+#         result += str(i) + ' '
+#     else:
+#         dict[i] += 1
+#         result += str(i) + '_' + str(dict[i]) + ' '
+# print(dict)
+# print(result)
+
+
+
 # string = input('Введите элементы списка через пробел -> ').split()
 # dict = {}
 # res = ''
@@ -20,6 +37,30 @@ import re
 #         dict[i] = 0
 #         res += str(i) + ' '
 # print(res)
+
+# Дан текст. Выведите слово, которое в этом тексте встречается чаще всего.
+# Если таких слов несколько, выведите то, 
+# которое меньше в лексикографическом порядке.
+
+# She sells sea shells on the sea shore The shells that she sells are sea shells I'm sure.So if she sells sea shells on the sea shore I'm sure that the shells are sea shore shells
+
+# string = re.split(' |\\.', input('Введите текст -> ').lower())
+# string.sort()
+# dict = {}
+# for i in string:
+#     if i not in dict:
+#         dict[i] = 1
+#     else:
+#         dict[i] += 1
+
+# max_val = 0
+# max_key = ''
+# for key, value in dict.items():
+#     if value > max_val:
+#         max_val = value
+#         max_key = key
+# print(f'Слово которое чаще всего встречалось - {max_key}, оно встретилось - {max_val} раз/раза!' )
+
 
 
 # Задача №27. Решение в группах
@@ -66,12 +107,21 @@ import re
 #         n = max_number
 # print(n) 
 
-arr = []
-while True:
-    n = int(input('Введите число из списка (0 заканчивает запись) -> '))
-    if n > 0:
-        arr.append(n)
+# arr = []
+# while True:
+#     n = int(input('Введите число из списка (0 заканчивает запись) -> '))
+#     if n > 0:
+#         arr.append(n)
+#     elif n == 0:
+#         break
+# print(f'Максимально значение в списке - {max(arr)}')
+
+n = 1
+max_number = 0
+while n > 0:
+    n = int(input()) 
+    if max_number < n:
+        max_number = n
     elif n == 0:
         break
-print(f'Максимально значение в списке - {max(arr)}')
-
+print(max_number) 
