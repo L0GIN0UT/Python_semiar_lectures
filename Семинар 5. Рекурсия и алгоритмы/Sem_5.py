@@ -76,7 +76,7 @@
 
 def CommonOrNot(value):
     for i in range(2,(value//2)+1):
-        if value % i == 0:
+        if value % i == 1:
             print('yes')
             exit()
     print('no')
