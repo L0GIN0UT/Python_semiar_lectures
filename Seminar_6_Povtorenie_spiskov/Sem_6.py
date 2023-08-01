@@ -15,13 +15,60 @@
 #(каждое число вводится с новой строки)
 
 # n = int(input('Введите кол-во элементов первого множества -> '))
-# arr_frst = [input('Введите элемент 1 списка -> ') for i in range(0,n) if i < n]
+# arr_frst = [input('Введите элемент 1 списка -> ') for i in range(0,n)]
 # m = int(input('Введите кол-во элементов второго множества -> '))
-# arr_scnd = [input('Введите элемент 2 списка -> ') for j in range(0,n) if j < m]
-arr_frst = [3, 1, 3, 4, 2, 4, 12]
-arr_scnd = [4, 15, 43, 1, 15, 1]
-res = [i for i in arr_frst if i not in arr_scnd]
-print(res)
+# arr_scnd = [input('Введите элемент 2 списка -> ') for j in range(0,m)]
+# res = [i for i in arr_frst if i not in arr_scnd]
+# print(res)
+
+def make_list(n) -> list[int]:
+    result = []
+    for i in range(n):
+        result.append(int(input(f"введите {i + 1}-й элемент ")))
+    return result
+
+def exercise_39():
+   """Задача №39
+   Даны два массива чисел. Требуется вывести те элементы
+   первого массива (в том порядке, в каком они идут в первом
+   массиве), которых нет во втором массиве. Пользователь вводит
+   число N - количество элементов в первом массиве, затем N
+   чисел - элементы массива. Затем число M - количество
+   элементов во втором массиве. Затем элементы второго массива
+   Ввод:
+   7
+   3 1 3 4 2 4 12
+   6
+   4 15 43 1 15 1 (каждое число вводится с новой строки)
+   Вывод:
+   3 3 2 12"""
+   n = int(input("Введите размер первого массива "))
+   list1 = make_list(n)
+   m = int(input("Введите размер второго массива "))
+   list2 = make_list(m)
+   for i in list1:
+       if i not in list2:
+           print(i, end=" ")
+
+def task039():
+    m = int(input("Введите длину списка m: "))
+    n = int(input("Введите длину списка n: "))
+    list_m = list_creator(m)
+    list_n =list_creator(n)
+    res_list = set_from_list(list_m, list_n)
+    print(*res_list)
+
+def list_creator(x):
+    my_list = []
+    for i in range(0, x):
+        my_list.append(int(input(f"Введите элемент списка из {x} элементов: ")))
+    return my_list
+
+def set_from_list(list_m, list_n):
+    my_list = [list_m[i] for i in range(len(list_m)) if list_m[i] not in list_n]
+    return my_list
+
+# task039()
 
 # Задача №41. Решение в группах
 # Дан массив, состоящий из целых чисел. Напишите
@@ -32,7 +79,7 @@ print(res)
 # Далее записаны N чисел — элементы массива. Массив
 # состоит из целых чисел.
 # Ввод: 5
-# 1 2 3 4 5
+# 1 2 3 4 5       
 # Вывод: 0
 # Ввод: 5 
 #  1 5 1 5 1
@@ -58,10 +105,10 @@ print(res)
 # print(counter)
 
 # Вариант 2
-n = int(input('Введите кол-во элементов множества -> '))
-arr = [input('Введите элемент массива -> ').split() for i in range(0, n) if i < n]
-res = [1 for i in range(0,len(arr)) if arr[i - 2] < arr[i - 1] and arr[i] < arr[i - 1]]
-print(sum(res))
+# n = int(input('Введите кол-во элементов множества -> '))
+# arr = [input('Введите элемент массива -> ') for i in range(0, n)]
+# res = [1 for i in range(0,len(arr)) if arr[i - 2] < arr[i - 1] and arr[i] < arr[i - 1]]
+# print(sum(res))
 
 # Задача №43. Решение в группах
 # Дан список чисел. Посчитайте, сколько в нем пар
@@ -73,11 +120,12 @@ print(sum(res))
 # Ввод:           Вывод:
 # 1 2 3 2 3       2
 
+# 1 варианат
 # string = input('Введите элементы списка через пробел -> ').split()
 # dict = {}
 # for i in string:
 #     if i in dict:
-#         dict[i] += 1
+#         dict[i] += 1  
 #     else:
 #         dict[i] = 1
 
@@ -86,6 +134,19 @@ print(sum(res))
 #     counter += (value//2)
 # print(f'Код нашел - {counter} пар в вашем списке!')
 
+# 2 вариант
+# string = input('Введите элементы списка через пробел -> ').split()
+# dict = {}
+# for i in string:
+#     if i in dict:
+#         dict[i] += 1  
+#     else:
+#         dict[i] = 0
+
+# counter = 0
+# for key, value in dict.items():
+#     counter += value
+# print(f'Код нашел - {counter} пар в вашем списке!')
 
 
 # Задача №45. Решение в группах
@@ -138,49 +199,5 @@ print(sum(res))
 # Пара дружественных чисел (67095, 71145) в пределе 99999
 # Пара дружественных чисел (69615, 87633) в пределе 99999
 # Пара дружественных чисел (79750, 88730) в пределе 99999
-# КОД РАБОТАЛ ОКОЛО 3 МИНУТ!!!
+# КОД РАБОТАЛ ОКОЛО 3 - 5 МИНУТ!!!
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# temp = 0
-
-# for key, value in dict.items(): #dict[]
-#     key1,value1 = value,key
-#     if key == dict[key1]:
-#         print(key, value)
-
-
-#     if value == 2:
-#         return ('yes')
-#     for i in range(2,(value//2) + 1):
-#         if value % i == 1:
-#             print('yes')
-#             exit()
-#     print('no')
-
-# dict = []
-# for i in range(1, k):
-#     sum = 0
-#     for j in range(1, i//2 + 1):
-#         if i % j == 0:
-#             sum += j
-#     dict.append(sum)
-
-# # for i in range(1, len(dict)):
-# #     if i == dict[i]:
-# #         print(i,dict[i])
-# print(dict)
