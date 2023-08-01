@@ -133,28 +133,34 @@ def set_from_list(list_m, list_n):
 # for key, value in dict.items():
 #     counter += (value//2)
 # print(f'Код нашел - {counter} пар в вашем списке!')
-
+#4-6 3-3 5-
 # 2 вариант
+# n = int(input('Введите кол-во элементов множества -> '))
+# string = [int(input('Введите кэлемент множества -> ')) for i in range(0,n)]  # 1 1 2 1 2 -- 4
+# counter = [1 for i in range(0,len(string)) for j in range(i+1,len(string)) if string[i] == string[j]]
+# print(sum(counter))
+
+
+# 3 вариант
 # string = input('Введите элементы списка через пробел -> ').split()
 # dict = {}
 # for i in string:
 #     if i in dict:
 #         dict[i] += 1  
 #     else:
-#         dict[i] = 0
+#         dict[i] = 1
 
 # counter = 0
-# for key, value in dict.items():
-#     counter += value
-# print(f'Код нашел - {counter} пар в вашем списке!')
-
+# for key, val in dict.items():
+#     counter += ((val)*(val-1))//2  
+# print(counter)
 
 # Задача №45. Решение в группах
 # Два различных натуральных числа n и m называются
 # дружественными, если сумма делителей числа n
 # (включая 1, но исключая само n) равна числу m и
-# наоборот. Например, 220 и 284 – дружественные числа.
-# По данному числу k выведите все пары дружественных
+# наоборот. Например, 220 и 284 – дружественные числа.    220 - 1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110 = 284
+# По данному числу k выведите все пары дружественных      284 - 1, 2, 4, 71, 142 = 220
 # чисел, каждое из которых не превосходит k. Программа
 # получает на вход одно натуральное число k, не
 # превосходящее 105
@@ -173,13 +179,13 @@ def set_from_list(list_m, list_n):
 #         break
 
 
-# def sumdivider(n):
-#     sum = 0
-#     for i in range(1, n//2 + 1):
+# def sumdivider(n):      # 220 - 2, 4, 5, 10, 11, 20, 22, 44, 55, 110
+#     sum = 1
+#     for i in range(2, int(n**0.5) + 1):
 #         if n % i == 0:
-#             sum += i
+#             sum += i + n//i
 #     return sum
-
+# # print(sumdivider(k))
 
 # for i in range(1,k):
 #     j = sumdivider(i)
