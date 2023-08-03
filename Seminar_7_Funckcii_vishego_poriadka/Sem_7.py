@@ -23,6 +23,17 @@
 # Вывод:
 # ok
 
+def transformation(values):
+    return lambda x: x
+
+values = [1, 23, 42, 'asdfg']
+transformed_values = list(map(transformation(values), values))
+if values == transformed_values: print('OK') 
+else: print('FAIL')
+
+
+# Или
+
 # values = [1, 23, 42, 'asdfg']
 # transformed_values = list(map(lambda x: x, values))
 # if values == transformed_values: print('OK') 
@@ -84,11 +95,11 @@ def find_farthest_orbit(orbits):
 # print(‘different’)
 
 
-def same_by(characteristic, objects):
-    counter = [1 for i in objects if i % 2 == 0]
-    if sum(counter) == len(objects): return True
-    else: return False
+# def same_by(characteristic, objects):
+#     counter = [1 for i in objects if i % 2 == 0]
+#     if sum(counter) == len(objects): return True
+#     else: return False
 
-values = [0, 2, 10, 6]
-if same_by(lambda x: x % 2, values): print('same')
-else: print('different')
+# values = [0, 2, 10, 6]
+# if same_by(lambda x: x % 2, values): print('same')
+# else: print('different')
