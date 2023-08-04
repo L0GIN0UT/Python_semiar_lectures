@@ -13,23 +13,37 @@
 
 # Старая версия
 
-def rhitm(sentence):
-    dict = {'а': 0, 'у': 0, 'о': 0, 'ы': 0, 'и': 0, 'я': 0, 'э': 0, 'ю': 0, 'ё': 0, 'е': 0}
-    count = 0
-    for word in sentence:
-        dict = dict.fromkeys(dict,0)
-        for i in word:
-            for key in dict:
-                if i == key:
-                    dict[i] += 1
-        if sum(dict.values()) % 2 == 0:
-            count += 1
-    if count == len(sentence):
-        print('Парам пам-пам')
-    else:
-        print('Пам парам')
+# def rhitm(sentence):
+#     dict = {'а': 0, 'у': 0, 'о': 0, 'ы': 0, 'и': 0, 'я': 0, 'э': 0, 'ю': 0, 'ё': 0, 'е': 0}
+#     count = 0
+#     for word in sentence:
+#         dict = dict.fromkeys(dict,0)
+#         for i in word:
+#             for key in dict:
+#                 if i == key:
+#                     dict[i] += 1
+#         if sum(dict.values()) % 2 == 0:
+#             count += 1
+#     if count == len(sentence):
+#         print('Парам пам-пам')
+#     else:
+#         print('Пам парам')
 
 # rhitm(input('Введите предложение -> ').split())
+# Немного не так сделал (прочитал что если четное кол-во букв в каждом слове то ритм)
+# или
+
+# Воспользуемся функцией ALL
+start_letters = 'аущыияэюёе'
+
+def rhitm(sentence):
+    vowel_in_word = lambda x: sum(1 for i in x if x in start_letters) # функция кол-ва гласных в слове
+    compare_len = vowel_in_word(sentence[0]) # основа для проверки
+    if all([vowel_in_word(i) == compare_len for i in sentence]): print('Парам пам-пам') # проверка на равенство каждого слова
+    else: print('Пам парам')
+
+rhitm(input('Введите предложение -> ').lower().split())
+
 
 # Задача 36: Напишите функцию print_operation_table(operation, num_rows=6, num_columns=6),
 # которая принимает в качестве аргумента функцию, вычисляющую элемент по номеру строки и
