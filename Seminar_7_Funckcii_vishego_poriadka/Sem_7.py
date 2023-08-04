@@ -1,3 +1,40 @@
+
+# Простые примеры
+# def f(n):
+#     return n**2
+
+# def f1(n):
+#     return n%2 == 0
+
+
+# pre_arr = input().split()
+# print(pre_arr)
+# pre_arr = list(map(int, pre_arr))
+# arr = list(map(f, pre_arr))
+# arr = list(map(lambda x: x**2, pre_arr))
+# print(arr)
+# x=5
+# per = x%2==0
+# print(per)
+# arr = list(filter(f1, pre_arr))
+# arr = list(filter(lambda x: x%2==0, pre_arr))
+# print(arr)
+
+
+# arr1= [1, 2, 3, 4, 5]
+# arr2= [11, 22, 33, 44, 55, 66]
+
+
+# arr3 = list(zip(arr1, arr2))
+# arr3.append("asfsadf")
+# print(arr3)
+
+
+# arr = [11, 22, 33, 44, 55, 66]
+# arr_res = list(enumerate(arr))
+# print(arr_res)
+
+
 # Задача №47. Решение в группах
 # У вас есть код, который вы не можете менять (так часто бывает, когда код в глубине
 # программы используется множество раз и вы не хотите ничего сломать):
@@ -23,13 +60,13 @@
 # Вывод:
 # ok
 
-def transformation(values):
-    return lambda x: x
+# def transformation(values):
+#     return lambda x: x
 
-values = [1, 23, 42, 'asdfg']
-transformed_values = list(map(transformation(values), values))
-if values == transformed_values: print('OK') 
-else: print('FAIL')
+# values = [1, 23, 42, 'asdfg']
+# transformed_values = list(map(transformation(values), values))
+# if values == transformed_values: print('OK') 
+# else: print('FAIL')
 
 
 # Или
@@ -72,9 +109,8 @@ else: print('FAIL')
 def find_farthest_orbit(orbits):
     arr_orbits = [i for i in orbits if i[0] != i[1]]
     areas = [(i[0]*i[1]) for i in arr_orbits]
-    maximum = areas.index(max(areas)) 
-    return arr_orbits[maximum]
-# print(find_farthest_orbit([(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]))
+    return arr_orbits[areas.index(max(areas))]
+print(find_farthest_orbit([(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]))
 
 
 
@@ -103,3 +139,41 @@ def find_farthest_orbit(orbits):
 # values = [0, 2, 10, 6]
 # if same_by(lambda x: x % 2, values): print('same')
 # else: print('different')
+
+
+# Дан список
+# в отдельном списке вывести буквы
+# в другом цифры
+
+# arr = [1, 'abfdjksdagf', 2, 'ugfuisgf']
+# arr_1 = list(filter(lambda x: type(x) == int, arr))
+# arr_2 = list(filter(lambda x: type(x) == str, arr))
+# print(arr_1, arr_2)
+
+# arr_in = input('Введите строку -> ').split()
+# arr_1 = list(filter(lambda x: x.isdigit(), arr_in))
+# arr_2 = list(filter(lambda x: x.isalpha(), arr_in))
+# print(arr_1, arr_2)
+
+# 2) Дано вещественное число, показать сумму его цифр.
+# n = '1.658376486790'.replace('.','')
+# print(sum(list(map(int, n))))
+
+# print(sum(list(map(int, '1.658376486790'.replace('.','')))))
+
+
+# num = 3.12
+# stroka = str(num)
+
+# res = list(filter(lambda x: x != ".", stroka))
+# res = sum(list(map(int, res)))
+
+# дан список целых чисел 
+# оставить только 2значные числа
+
+arr = map(int,input('Введите число').split())
+arr_res = list(filter(lambda x: x in range(10,100), arr))
+print(arr_res)
+
+# print(list(filter(lambda x: x in range(10,100), map(int,input('Введите число -> ').split()))))
+
