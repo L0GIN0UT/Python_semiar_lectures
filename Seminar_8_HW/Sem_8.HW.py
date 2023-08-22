@@ -19,12 +19,13 @@ def checking_for_input_length(arr):
 # Функция для выбора функций
 def choose():
     while True:
-        choise = input('Введите действие (1,2,3,4,5) -> ').lower()
+        choise = input('Введите действие (1,2,3,4,5,6) -> ').lower()
         if choise == '1': return zapis(checking_for_input_length(input('Введите Фамилию Имя Отчество и Номер телефона человека через пробел -> ').split()))
         if choise == '2': return read_search(input('Введите Фамилию человека которого вы ищите -> '))
         if choise == '3': return delete(input('Введите Фамилию человека для удаления его данных -> '))
         if choise == '4': return change(input('Введите Фамилию человека для замены его данных -> '), input('Введите что вы хотите изменить (1 - Фамилия, 2 - Имя, 3 - Отчество, 4 - Номер) -> ') , input('Введите новые данные -> '))
-        if choise == '5': exit() 
+        if choise == '5': return read_all() 
+        if choise == '6': exit()
 
 # Функция открытия и записи в файл инвормации (если файл уже есть то мы добавляем в него данные)
 def zapis(arr):
@@ -50,12 +51,20 @@ def zapis(arr):
             
 # Функция поиска Данных пользователя и их печати
 def read_search(teg):
-     with open(filepath,'r',encoding = 'utf-8') as f:
-        new_array = [re.sub('\s+','',line) for line in f.readlines()]
-        for i in range(0,len(new_array)):
-            if teg in new_array[i]:
-                return print(f'По ващему запросу {teg} удалось найти: \n {new_array[i]} \n {new_array[i+1]} \n {new_array[i+2]} \n {new_array[i+3]}')
-        return print(f'По вашему запросу "{teg}" ничего не найдено')
+    if os.path.exists(filepath):
+        with open(filepath,'r',encoding = 'utf-8') as f:
+            new_array = [re.sub('\s+','',line) for line in f.readlines()]
+            for i in range(0,len(new_array)):
+                if teg in new_array[i]:
+                    return print(f'По ващему запросу {teg} удалось найти: \n {new_array[i]} \n {new_array[i+1]} \n {new_array[i+2]} \n {new_array[i+3]}')
+            return print(f'По вашему запросу "{teg}" ничего не найдено')
+    else: print('Файла не существует!')
+
+# Функция Чтения всех
+def read_all():
+    with open(filepath,'r',encoding = 'utf-8') as f:
+        for line in f:
+            print(line)
 
 # Функция удаления данных пользователя из файла
 def delete(teg):
@@ -93,8 +102,9 @@ def change(teg, diction, new_teg):
             return print(f'Данные пользователя "{teg}" были успешно изменены!')
     else: return print(f'По вашему запросу "{teg}" ничего не найдено!')
 
+
 while True:
-    print('Выберите действие: \n 1 - Записать данные в файл \n 2 - Найти данные по Фамилии \n 3 - Удалить данные  \n 4 - Изменить данные \n 5 - Остановить программу')
+    print('Выберите действие: \n 1 - Записать данные в файл \n 2 - Найти данные по Фамилии \n 3 - Удалить данные  \n 4 - Изменить данные \n 5 - Вывод всего списка \n 6 - Остановить программу')
     choose()
     input('Введите ENTER чтобы продолжить!')
 
