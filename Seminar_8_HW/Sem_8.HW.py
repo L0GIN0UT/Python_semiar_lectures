@@ -73,7 +73,7 @@ def delete(teg):
     return print(f'По вашему запросу "{teg}" ничего не найдено!')
 
 # Функция изменения данных в файле
-def change(teg,diction, new_teg):
+def change(teg, diction, new_teg):
     check = False
     dict = {'1': 'Фамилия:', '2': 'Имя:', '3': 'Отчество:', '4': 'Номер:'}
     if diction not in dict.keys():
@@ -91,8 +91,7 @@ def change(teg,diction, new_teg):
         with open(filepath,'w',encoding = 'utf-8') as f:
             f.writelines(arr)
             return print(f'Данные пользователя "{teg}" были успешно изменены!')
-    return print(f'По вашему запросу "{teg}" ничего не найдено!')
-
+    else: return print(f'По вашему запросу "{teg}" ничего не найдено!')
 
 while True:
     print('Выберите действие: \n 1 - Записать данные в файл \n 2 - Найти данные по Фамилии \n 3 - Удалить данные  \n 4 - Изменить данные \n 5 - Остановить программу')
